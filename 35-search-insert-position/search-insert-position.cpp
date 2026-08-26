@@ -16,7 +16,8 @@ public:
              high=mid-1;
 
         }
-        return high+1; 
+        return low;   // high+1 bhi return kr skte hai... 
+                      // because index sirf low wala de rha hai  
      
        
 
