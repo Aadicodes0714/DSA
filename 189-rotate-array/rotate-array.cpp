@@ -1,5 +1,5 @@
+/*
 class Solution {
-    /*
 public:
     void rotate(vector<int>& nums, int k) {
 
@@ -16,11 +16,14 @@ public:
 
     nums[0] = last;
 }
+};
 */
 
 /*
 //REVERSE APPROACH--> using STL libraries....
-
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
         int n=nums.size();
 
 k = k% n;
@@ -34,9 +37,10 @@ reverse(nums.begin()+k,nums.end());
 
 */
 
-// REVERSE APPROACH --> WITHOUT USING STL libraries...
 
-
+/*
+// REVERSE APPROACH --> WITHOUT USING STL libraries...(using temporary variable..)
+class Solution{
 public:
 
     void reverse ( vector<int>&nums,int left ,int right){
@@ -44,6 +48,33 @@ public:
     int temp=nums[left];
     nums[left]=nums[right];
     nums[right]=temp;
+    left++;
+    right--;
+    }
+
+}
+    void rotate(vector<int>& nums, int k) {
+
+        int n=nums.size();
+
+k = k% n;
+
+reverse(nums,0,n-1);
+reverse(nums,0,k-1);
+reverse(nums, k, n-1);
+
+
+    }
+};
+*/
+
+// REVERSE APPROACH --> WITHOUT USING STL libraries...(using swap function...)
+class Solution {
+public:
+
+    void reverse ( vector<int>&nums,int left ,int right){
+  while(left<right){
+    swap(nums[left],nums[right]);
     left++;
     right--;
     }
