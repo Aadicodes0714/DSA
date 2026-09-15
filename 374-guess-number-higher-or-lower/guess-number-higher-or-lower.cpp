@@ -14,7 +14,7 @@ public:
                        int low=0;
                        int high =n-1;
 int pick;
-                       while(low < high)
+                       while(low <= high)
                        {
                            int mid=low+(high -low)/2;
                              if (guess(mid)==0)
