@@ -12,6 +12,11 @@ sort(nums.begin(),nums.end());  // O(nlogn)
 
 return nums;        // overall t.c -(O(nlogn))
 */
+
+//2 POINTERS APPROACH...
+//T.C-O(N)... S.C--(O(N))
+
+
 vector <int> a ; // positive elements
 vector <int > b;  //negative elements
 
@@ -27,23 +32,7 @@ else {
 
 }
 
-if (b.size()==0)
-{
-    for (int i=0;i<nums.size();i++)
-    {
-       nums[i]*=nums[i];
-    }
-}
 
-if( a.size()==0)
-{
-    for (int j=0;j<nums.size();j++)
-    {
-        nums[j]*=nums[j];
-
-    }
-       reverse(nums.begin(),nums.end());
-}
 
 int i=0;
 int j=b.size()-1;
