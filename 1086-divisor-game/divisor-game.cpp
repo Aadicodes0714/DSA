@@ -1,10 +1,14 @@
 class Solution {
 public:
     bool divisorGame(int n) {
+        /*
     if (n%2==0)
     {
         return true;
     }
    return false;
+   */
+
+   return n%2==0;
     }
 };
