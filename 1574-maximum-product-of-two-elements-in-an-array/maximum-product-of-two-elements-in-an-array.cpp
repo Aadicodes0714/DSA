@@ -2,12 +2,15 @@ class Solution {
 public:
     int maxProduct(vector<int>& nums) {
 
-/*
+//USING SORTING FUNCTION....O(NLOGN)
+/* 
 int n =nums.size();
  sort(nums.begin(),nums.end());
  return ((nums[n-1]-1)*(nums[n-2]-1));
 */
 
+// USING NESTED LOOPS....O(N^2)
+/*
 int n=nums.size();
 int ans=0;
 for(int i=0;i<n;i++)
@@ -21,12 +24,15 @@ for(int i=0;i<n;i++)
 
 }
 return ans;
-/*
+
+*/
+// USING ONLY 1 LOOP...O(N)
+
 int n=nums.size();
 int first=0;
 int second=0;
-
-for(int i=0;i<n;i++)
+int i=0;
+while(i<n)
 {
     if(nums[i]>first)
     {
@@ -39,12 +45,9 @@ for(int i=0;i<n;i++)
     {
         second=nums[i];
     }
+    i++;
 }
 return (first -1)*(second-1);
-*/ 
-
-
-
 
     }
 };
