@@ -1,104 +1,60 @@
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
+      int n=nums.size();
+      sort(nums.begin(),nums.end());
+      vector<vector<int>>result;
+      for(int i=0;i<n-2;i++)
+      {
+             int sum=-nums[i];
 
+        int left=i+1;
+        int right=n-1;
 
-        //TWO POINTER APPROACH...
-        vector <vector<int>>res;
-   int n=nums.size();
-   sort(nums.begin(),nums.end());
-
-   for(int i=0;i<n-2;i++)          //n-2???
-                                        // becz we need to find triplets..
-   {
-     if(i>0 && nums[i]==nums[i-1])  //duplicacy checking.
-     {
+       if(i>0 && nums[i]==nums[i-1])
+       {
         continue;
-     }
-
-int left =i+1;
-int right=nums.size()-1;
-int sum =-nums[i];
-
-while(left<right)
-{
-   int s =nums[left]+nums[right];
-   if(s==sum)
-   {
-      res.push_back({nums[i],nums[left],nums[right]});
-      left++;
-      right--;
-
-      while(left <right && nums[left]==nums[left-1])
-      {
-        left++;
-      }
-      while(left < right && nums[right]==nums[right+1])
-      {
-        right--;
-      }
-
-   }
-    else if(s<sum)
-   {
-      left++;
-   }
-   else 
-   {
-    right--;
-   }
-}
-
-     }
-   
-   return res;
+       }
 
 
-// BRUTEFORCE ....TLE...
-/*
-set<vector<int>> s;
-for (int i=0;i<nums.size();i++)
-{
-    for (int j=i+1;j<nums.size();j++)
-    {
-        for(int k=j+1;k<nums.size();k++)
-
+        while(left < right )
         {
-            if (nums[i]+nums[j]+nums[k]==0){
-        vector <int> temp={nums[i],nums[j],nums[k]};
-        sort(temp.begin(),temp.end());
-        s.insert(temp);
+             int s=nums[left]+nums[right];
+              if(s==sum)
+              {
+                result.push_back({nums[i],nums[left],nums[right]});
+                left ++;
+                right--;
+
+
+                
+          while(left<right && nums[left]== nums[left -1])
+          {
+            left++;
+          }
+          
+          while( left<right && nums[right]==nums[right+1])
+          {
+            right--;
+
+          }
+              }
+          
+          else if(s<sum)
+           {
+            left ++ ;   
+           }
+           else 
+           {
+            right--;
+           }
+
 
             }
-        }
 
-    }
-}
-vector<vector<int>> res(s.begin(),s.end());
-return res;
-*/
+      }
 
-// using hashset... TLE...
+return result;
 
-/*
-set<vector<int>> s;
-for (int i=0;i<nums.size();i++)
-{
-    set<int>hashset;
-    for (int j=i+1;j<nums.size();j++)
-    {
-int third =-(nums[i]+nums[j]);
-if(hashset.find(third)!=hashset.end())
-{
-    vector<int > temp= {nums[i],nums[j],third};
-    sort(temp.begin(),temp.end());
-    s.insert(temp);
-}
-hashset.insert(nums[j]);
-    }
-}
-    vector<vector<int>> res(s.begin(),s.end());
-return res;
-*/
     }
 };
