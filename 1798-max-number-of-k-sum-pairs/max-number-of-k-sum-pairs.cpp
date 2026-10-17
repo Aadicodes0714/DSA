@@ -9,13 +9,15 @@ public:
            int right=n-1;
            while(left<right)
            {
-            if (nums[left]+nums[right]==k)
+
+           int sum=nums[left]+nums[right];
+            if (sum==k)
             {
                 operation++;
                 left++;
                 right--;
             }
-            else if( nums[left]+nums[right]<k)
+            else if(sum<k)
             {
                 left++;
 
