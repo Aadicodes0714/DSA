@@ -1,6 +1,10 @@
 class Solution {
 public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+
+        /*
+        // TWO POINTER APPROACH ... 
+
         int n=nums1.size();
         int m=nums2.size();
 
@@ -36,5 +40,31 @@ public:
       }
 
       return result;
+
+*/
+
+
+// USING 2 HASHTABLE ... I.E UNORDERED SET...
+
+unordered_set<int> s;
+unordered_set<int> res;
+
+
+for(int num: nums1)
+{
+    s.insert(num);
+}
+
+for(int num:nums2)
+{
+    if(s.find(num)!=s.end())
+    {
+        res.insert(num);
+    }
+}
+vector <int>result(res.begin(),res.end());
+return result;
+
+
     }
 };
