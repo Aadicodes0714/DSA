@@ -11,7 +11,7 @@ public:
         {
             n=n/3;
         }
-     return n==1;
-
+     
+return n==1;
     }
 };
