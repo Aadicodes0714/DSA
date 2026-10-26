@@ -1,5 +1,5 @@
 //BFS 
-/*class Solution {
+class Solution {
 public:
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
         int n = grid.size();
@@ -39,8 +39,9 @@ public:
 
         return -1;
     }
-};*/
+};
 
+/*
 //dijkstra's algo
 
 class Solution {
@@ -95,3 +96,5 @@ public:
         return -1;
     }
 };
+
+*/
