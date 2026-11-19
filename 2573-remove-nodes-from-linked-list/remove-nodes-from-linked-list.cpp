@@ -8,6 +8,10 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+
+/*
+
 class Solution {
 public:
 
@@ -32,7 +36,6 @@ public:
          return prev;   // new head return krdo
         
     }
-
 
 ListNode* removeNodes(ListNode* head) {
 
@@ -60,4 +63,44 @@ ListNode* removeNodes(ListNode* head) {
 
         return head;
     }
+};
+
+*/
+
+
+class Solution {
+public:
+
+ListNode* removeNodes(ListNode* head) {
+
+stack<ListNode*>st;
+
+ListNode* curr=head;
+
+while(curr!=NULL)
+{
+    st.push(curr);
+    curr=curr->next;
+
+}
+
+int curr_max= INT_MIN;
+
+ListNode* result =NULL;
+
+while(!st.empty())
+{
+    curr=st.top();
+    st.pop();
+
+    if(curr->val>=curr_max)
+    {
+        curr->next=result;
+        result=curr;
+        curr_max=curr->val;
+    }
+}
+
+return result;
+  }
 };
